@@ -1,6 +1,11 @@
 * { box-sizing: border-box; }
+<<<<<<< HEAD
 body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #18d125; color: #333; }
 header { background: #0bdb43; padding: 16px; }
+=======
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #1976d2; color: #333; }
+header { background: #eaeaea; padding: 16px; }
+>>>>>>> 03bb4daa732d4015b1923d14b0475a609f337091
 h1 { margin: 0; }
 
 nav { background: #fff; border-bottom: 1px solid #ddd; }
