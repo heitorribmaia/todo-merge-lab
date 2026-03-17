@@ -1,31 +1,23 @@
-// app.js – funções simples para forçar conflitos controlados
+const form = document.getElementById('form');
+const input = document.getElementById('newItem');
+const list = document.getElementById('list');
 
-function formatUser(user) {
-  // 🔥 PONTO DE CONFLITO: vários alunos alterarão este mesmo trecho
-  // TODO: retornar uma string "Nome <email>" OU "NOME - email" OU outro formato padronizado
-  // Exemplo inicial (mude aqui de forma diferente em branches distintas):
-  return `${user.name} (${user.email})`;
-}
-
-function renderUserBox() {
-  const el = document.getElementById('user-box');
-  const user = { name: 'Usuário Demo', email: 'demo@example.com' };
-  el.textContent = 'Usuário: ' + formatUser(user);
-}
-
-// Conflitos leves em funções diferentes (normalmente merge automático):
-function renderMenu() {
-  const menu = document.getElementById('menu');
-  // Aluno A pode inserir itens aqui
-}
-
-function renderFooter() {
-  const footer = document.querySelector('footer small');
-  // Aluno B pode alterar o texto aqui
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  renderUserBox();
-  renderMenu();
-  renderFooter();
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const text = input.value.trim();
+  if (!text) return;
+  addItem(text);
+  input.value = '';
 });
+
+function addItem(text) {
+  const li = document.createElement('li');
+  li.textContent = text;
+  li.addEventListener('click', () => toggleDone(li));
+  list.appendChild(li);
+}
+
+// Função alvo de CONFLITO na Aula 2:
+function toggleDone(li) {
+  li.classList.toggle('done');
+}
