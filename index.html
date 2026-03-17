@@ -1,43 +1,18 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!doctype html>
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mudar</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Todo App</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <header>
-    <h1>Lista de Tarefas (Git)</h1>
-  </header>
-
-  <nav>
-    <ul id="menu">
-      <!-- TODO(alunos): adicionar itens de menu AQUI (mesma área para forçar conflito) -->
-      <li><a href="index.html">Home</a></li>
-    </ul>
-  </nav>
-
-  <main>
-    <section id="content">
-      <h2>Boas-vindas</h2>
-      <p>Use este projeto para praticar merges e resolução de conflitos.</p>
-      <div id="user-box"></div>
-    </section>
-
-    <section id="links">
-      <h2>Páginas dos Alunos</h2>
-      <ul>
-        <!-- Cada aluno deve adicionar um link exclusivo aqui (linhas distintas para evitar conflito) -->
-        <!-- Exemplo: <li><a href="pages/aluno1.html">Página do Aluno 1</a></li> -->
-      </ul>
-    </section>
-  </main>
-
-  <footer>
-    <small>Exercício Git &copy; 2025</small>
-  </footer>
-
+  <h1 id="title">Minha Lista</h1>
+  <form id="form">
+    <input id="newItem" placeholder="Nova tarefa" />
+    <button class="btn" type="submit">Adicionar</button>
+  </form>
+  <ul id="list"></ul>
   <script src="app.js"></script>
 </body>
 </html>

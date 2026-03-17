@@ -1,24 +1,49 @@
-# Projeto Front-end para Exercício de Git (HTML/CSS/JS)
+# Todo Merge Lab — Starter (SEM PR)
 
-Este repositório será usado para praticar **merges e conflitos** em um projeto front‑end.
+Projeto base em **HTML/CSS/JS** para o laboratório de **Git Merge, Conflitos e Gitflow** **sem** Pull Requests.
 
-## Como começar
-1. Crie sua branch a partir de `develop`:
+## Estrutura
+```
+/
+├─ index.html
+├─ style.css
+└─ app.js
+```
+
+## Passo a passo (resumo)
+1. Dono cria repositório `todo-merge-lab` no GitHub e adiciona o colega como colaborador.
+2. Clone e primeiro commit na **main** com estes arquivos.
+3. Crie a tag inicial:
    ```bash
-   git checkout develop
-   git pull origin develop
-   git checkout -b feature/seu-nome
+   git tag v1.0.0 && git push origin v1.0.0
+   ```
+4. Crie a branch **develop** a partir de `main`:
+   ```bash
+   git checkout -b develop && git push -u origin develop
    ```
 
-2. Rode um servidor local simples (opcional): use a extensão Live Server no VS Code ou:
-   ```bash
-   python -m http.server 5500
-   ```
+### Conflitos propostos
+- **HTML**: alterar **a mesma linha** do `<h1>` no `index.html` em 2 features diferentes e fazer merge local para `develop`.
+- **CSS**: alterar **a mesma linha** da regra `.btn` no `style.css` (ex.: `background`) em 2 features; resolver conflito padronizando e, se quiser, usando variável CSS:
+  ```css
+  :root { --btn-bg: #1976d2; }
+  .btn { background: var(--btn-bg); }
+  ```
+- **JS**: alterar **a mesma função** `toggleDone` no `app.js` em 2 features (ex.: emoji ✅ e contador no título) e **conciliar** as lógicas.
 
-## ⚠️ Pontos de conflito propositais
-- **Edite ESTA MESMA LINHA** substituindo por seu nome completo (apenas UMA linha): _SEU NOME AQUI_
-- Em `app.js`, a função `formatUser()` contém um TODO para múltiplos alunos alterarem o mesmo trecho.
-- Em `index.html`, o bloco `<nav>` deve ser alterado por duas branches diferentes.
-- Em `style.css`, o seletor `nav ul li` deve ser alterado por dois alunos.
+### Hotfix e release
+- **Hotfix** direto na `main`, tag `v1.0.1`, depois **merge de volta** para `develop`.
+- **Release**: `develop` → `main` via CLI, tag `v1.1.0`.
 
-> Dica: Sempre faça `git fetch` + `git merge origin/develop` antes de abrir seu PR para ver conflitos localmente.
+### Comandos úteis
+```bash
+git checkout -b feature/nome
+git fetch origin
+git pull
+git merge <branch>
+git rebase origin/develop
+git push --force-with-lease
+git tag vX.Y.Z && git push origin vX.Y.Z
+git revert <SHA>
+git log --oneline --graph --decorate --all
+```
