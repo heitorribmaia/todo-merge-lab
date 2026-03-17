@@ -20,4 +20,11 @@ function addItem(text) {
 // Função alvo de CONFLITO na Aula 2:
 function toggleDone(li) {
   li.classList.toggle('done');
+
+  if (li.classList.contains('done')) {
+    li.dataset.originalText = li.textContent.replace(/^✅\s*/, '');
+    li.textContent = `✅ ${li.dataset.originalText}`;
+  } else {
+    li.textContent = li.dataset.originalText || li.textContent.replace(/^✅\s*/, '');
+  }
 }
